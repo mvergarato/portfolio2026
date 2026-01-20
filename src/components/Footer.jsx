@@ -13,10 +13,10 @@ export default function Footer() {
 
   return (
     <footer className="py-12 border-t border-white/5 bg-[#05060a] text-slate-500 text-sm">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative flex items-center justify-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-center md:justify-between relative gap-4">
 
         {/* Izquierda: Logo + Links */}
-        <div className="hidden md:flex items-center gap-6 absolute left-12">
+        <div className="hidden md:flex items-center gap-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-indigo-600/20 rounded-xl flex items-center justify-center text-white font-bold text-lg">
               M
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
         {/* Centro: Copyright */}
-        <span className="text-slate-500 text-xs text-center pointer-events-none">
+        <span className="text-slate-500 text-xs text-center md:text-center pointer-events-none">
           © {currentYear} {PROFILE.name}. All rights reserved
         </span>
 
@@ -55,7 +55,7 @@ export default function Footer() {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="
-            absolute right-12 flex items-center gap-2
+            flex items-center gap-2
             text-slate-400 font-semibold text-base
             transition-all duration-300
             hover:text-white hover:-translate-y-0.5

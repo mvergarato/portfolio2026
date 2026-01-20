@@ -10,7 +10,7 @@ const CONTACT = {
   linkedin: "https://linkedin.com/in/mvergarato",
 }
 
-// Variantes de animación para el contenedor y los hijos
+// Variantes de animación
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -47,10 +47,10 @@ export default function Contact() {
       className="relative min-h-[85vh] flex items-center bg-[#030014] overflow-hidden py-32 font-sans text-left"
       onMouseMove={handleMouseMove}
     >
-      {/* Grid de fondo sutil */}
+      {/* Grid de fondo */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-      <div className="max-w-7xl mx-auto px-10 md:px-16 w-full relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-16 w-full relative z-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -60,10 +60,10 @@ export default function Contact() {
           {/* Ubicación */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-3 mb-8 text-slate-500"
+            className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 mb-6 md:mb-8 text-slate-500 text-sm md:text-base"
           >
             <MapPin size={20} strokeWidth={1.5} />
-            <span className="text-sm md:text-base font-medium uppercase tracking-[0.4em]">
+            <span className="uppercase tracking-[0.2em] md:tracking-[0.4em] font-medium">
               Sevilla · Badajoz · Remote
             </span>
           </motion.div>
@@ -71,10 +71,10 @@ export default function Contact() {
           {/* Titular */}
           <motion.h2
             variants={itemVariants}
-            className="text-7xl md:text-[9.5rem] font-black text-white mb-10 tracking-tighter uppercase italic leading-[0.9] md:leading-[0.85]"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[9.5rem] font-black text-white mb-8 md:mb-10 tracking-tighter uppercase italic leading-[1] md:leading-[0.85]"
           >
             <span className="block pb-2 md:pb-7">¿HABLAMOS?</span>
-            <span className="lowercase text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-indigo-500 to-cyan-400 font-light tracking-tight block animate-gradient-x bg-[length:200%_auto] leading-tight py-2">
+            <span className="lowercase text-2xl sm:text-3xl md:text-4xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-indigo-500 to-cyan-400 font-light tracking-tight block animate-gradient-x bg-[length:200%_auto] leading-tight py-2">
               hungry for real challenges
             </span>
           </motion.h2>
@@ -82,10 +82,10 @@ export default function Contact() {
           {/* Texto */}
           <motion.div
             variants={itemVariants}
-            className="text-slate-400 text-xl md:text-2xl mb-16 max-w-2xl font-light leading-relaxed"
+            className="text-slate-400 text-lg sm:text-xl md:text-2xl mb-12 md:mb-16 max-w-full md:max-w-2xl font-light leading-relaxed"
           >
             <p>Desarrollador web junior con mentalidad de crecimiento.</p>
-            <p className="italic text-slate-500">
+            <p className="italic text-slate-500 mt-2">
               Busco mi primera oportunidad en IT para aprender, aportar valor real y evolucionar profesionalmente.
             </p>
           </motion.div>
@@ -93,7 +93,7 @@ export default function Contact() {
           {/* Iconos */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-end items-center gap-10 md:gap-12"
+            className="flex flex-wrap justify-start md:justify-end items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12"
           >
             {[
               { icon: <Phone size={30} />, href: `https://wa.me/${CONTACT.whatsapp}`, label: "WhatsApp" },

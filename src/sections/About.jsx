@@ -67,10 +67,7 @@ const SKILLS = [
 /* --- VARIANTS --- */
 const containerVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-  }
+  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
 }
 
 const itemVariants = {
@@ -85,13 +82,10 @@ const itemVariants = {
 
 const textRevealVariants = {
   hidden: { y: 30, opacity: 0 },
-  visible: { 
-    y: 0, 
-    opacity: 1, 
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
-  }
+  visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
 }
 
+/* --- COMPONENTES --- */
 function SpotlightCard({ children }) {
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -106,7 +100,7 @@ function SpotlightCard({ children }) {
     <motion.div
       variants={itemVariants}
       onMouseMove={handleMouseMove}
-      className="group/card relative rounded-2xl border border-violet-500/20 bg-[#0E0B1F]/90 p-8 overflow-hidden w-full shadow-[0_0_50px_-15px_rgba(88,28,135,0.4)]"
+      className="group/card relative rounded-2xl border border-violet-500/20 bg-[#0E0B1F]/90 p-6 sm:p-8 overflow-hidden w-full shadow-[0_0_50px_-15px_rgba(88,28,135,0.4)]"
     >
       <motion.div
         className="pointer-events-none absolute -inset-px opacity-0 group-hover/card:opacity-100 transition duration-300"
@@ -136,55 +130,56 @@ function TechProgress({ name, level, img }) {
         variants={{ hover: { width: `${level}%` } }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       />
-      <span className="relative flex items-center gap-4 px-3 py-2 text-sm font-medium text-slate-200 border border-white/10 backdrop-blur-sm transition-colors group-hover/tech:text-white">
-        <img src={getImageUrl(img)} alt={name} className="w-3.5 h-3.5 object-contain filter grayscale group-hover/tech:grayscale-0 transition-all duration-300" />
+      <span className="relative flex items-center gap-3 px-3 py-2 text-sm sm:text-base font-medium text-slate-200 border border-white/10 backdrop-blur-sm transition-colors group-hover/tech:text-white">
+        <img src={getImageUrl(img)} alt={name} className="w-4 h-4 sm:w-5 sm:h-5 object-contain filter grayscale group-hover/tech:grayscale-0 transition-all duration-300" />
         {name}
       </span>
     </motion.div>
   )
 }
 
+/* --- COMPONENTE PRINCIPAL --- */
 export default function About() {
   return (
     <section id="about" className="relative min-h-screen py-32 border-t border-white/5 overflow-hidden flex items-center bg-[#030014]">
       {/* Luces de fondo */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-600/5 blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-600/5 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-violet-600/5 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-indigo-600/5 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1600px] mx-auto px-8 w-full">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 w-full">
         <motion.div 
-          className="grid grid-cols-1 xl:grid-cols-12 gap-20 items-start"
+          className="grid grid-cols-1 xl:grid-cols-12 gap-12 xl:gap-20 items-start"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
           {/* TEXTO IZQUIERDA */}
-          <div className="xl:col-span-5 sticky top-32">
-            <motion.span variants={textRevealVariants} className="text-indigo-500 font-black text-xs uppercase tracking-[0.5em] mb-6 block">
+          <div className="xl:col-span-5 xl:sticky xl:top-32">
+            <motion.span variants={textRevealVariants} className="text-indigo-500 font-black text-xs uppercase tracking-[0.5em] mb-4 sm:mb-6 block">
               Detrás del código
             </motion.span>
 
-            <motion.h2 variants={textRevealVariants} className="text-6xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-8 italic leading-[0.85]">
+            <motion.h2 variants={textRevealVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tighter mb-6 md:mb-8 italic leading-[1] md:leading-[0.85]">
               Aprender & <br /> 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-indigo-400 to-cyan-400">Construir.</span>
             </motion.h2>
 
-            <motion.p variants={textRevealVariants} className="text-xl md:text-2xl text-slate-400 mb-12 max-w-xl leading-relaxed font-light">
+            <motion.p variants={textRevealVariants} className="text-lg sm:text-xl md:text-2xl text-slate-400 mb-8 md:mb-12 max-w-full md:max-w-xl leading-relaxed font-light">
               Estoy dando mis primeros pasos como desarrollador web, construyendo proyectos, aprendiendo buenas prácticas y mejorando cada día.
               Me interesa el frontend, el diseño y la experiencia de usuario, y estoy motivado por seguir creciendo en un entorno profesional.
               Busco una oportunidad donde aprender haciendo y aportar con compromiso y actitud.
             </motion.p>
 
-            <motion.div variants={containerVariants} className="grid sm:grid-cols-2 gap-4">
+            <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { icon: <Globe size={20} />, title: "Mentalidad de crecimiento", sub: "Aprendizaje continuo" },
                 { icon: <Code size={20} />, title: "Atención al detalle", sub: "Compromiso visual" }
               ].map((item, i) => (
-                <motion.div key={i} variants={textRevealVariants} className="p-6 bg-white/[0.02] rounded-xl border border-white/5 flex gap-4 hover:bg-white/[0.05] transition-colors duration-500">
+                <motion.div key={i} variants={textRevealVariants} className="p-4 sm:p-6 bg-white/[0.02] rounded-xl border border-white/5 flex gap-4 hover:bg-white/[0.05] transition-colors duration-500">
                   <div className="text-indigo-400">{item.icon}</div>
                   <div>
-                    <span className="text-white text-sm font-bold block mb-0.5">{item.title}</span>
-                    <span className="text-slate-500 text-[9px] uppercase font-black tracking-widest">{item.sub}</span>
+                    <span className="text-white text-sm sm:text-base font-bold block mb-0.5">{item.title}</span>
+                    <span className="text-slate-500 text-[9px] sm:text-xs uppercase font-black tracking-widest">{item.sub}</span>
                   </div>
                 </motion.div>
               ))}
@@ -194,19 +189,19 @@ export default function About() {
           {/* CARDS DERECHA */}
           <motion.div 
             variants={containerVariants}
-            className="xl:col-span-7 grid sm:grid-cols-2 gap-6"
+            className="xl:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
           >
             {SKILLS.map((skill, idx) => (
               <SpotlightCard key={idx}>
-                <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-4 sm:gap-6">
                   <div className="w-12 h-12 flex items-center justify-center bg-indigo-500/10 rounded-xl border border-indigo-500/20 text-indigo-400 group-hover/card:scale-110 group-hover/card:bg-indigo-500/20 transition-all duration-500">
                     {skill.icon}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">{skill.category}</h3>
-                    <p className="text-slate-400 text-xs leading-relaxed font-light">{skill.description}</p>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-1 sm:mb-2 tracking-tight">{skill.category}</h3>
+                    <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-light">{skill.description}</p>
                   </div>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
                     {skill.techs.map((tech) => (
                       <TechProgress key={tech.name} {...tech} />
                     ))}
