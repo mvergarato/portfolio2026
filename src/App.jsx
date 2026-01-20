@@ -1,26 +1,51 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './components/About';
-import Projects from './components/Projects';
-import Tecnologies from './components/Tecnologies';
-import Navbar from './components/Navbar';
+import React from "react"
+
+// --- GLOBAL EFFECTS ---
+import BackgroundManager from "./components/BackGroundManager"
+import MouseFollower from "./components/MouseFollower"
+import ScrollProgress from "./components/ScrollProgress"
+
+// --- COMPONENTS ---
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+
+// --- SECTIONS ---
+import Hero from "./sections/Hero"
+import About from "./sections/About"
+import Projects from "./sections/Projects"
+import Contact from "./sections/Contact"
 
 export default function App() {
+  // --- FUNCIÓN PARA SCROLL SUAVE ---
+  const scrollTo = (sectionId) => {
+    const el = document.getElementById(sectionId)
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-950 to-slate-950 text-white">
-      {/* Navbar siempre visible */}
+    <>
+      {/* BARRA DE SCROLL ARRIBA */}
+      <ScrollProgress />
+
+      {/* EFECTOS GLOBALES */}
+      <BackgroundManager />
+      <MouseFollower />
+
+      {/* NAVBAR */}
       <Navbar />
 
-      {/* Contenido de las páginas */}
-      <main className="p-2 md:p-6">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/tecnologies" element={<Tecnologies />} />
-          <Route path="/projects" element={<Projects />} />
-        </Routes>
+      {/* SECCIONES */}
+      <main>
+        <Hero scrollTo={scrollTo} />
+        <About />
+        <Projects />
+        <Contact />
       </main>
-    </div>
-  );
+
+      {/* FOOTER */}
+      <Footer />
+    </>
+  )
 }
