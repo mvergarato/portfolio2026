@@ -2,39 +2,39 @@ import React from "react"
 import { motion, useMotionValue, useMotionTemplate } from "framer-motion"
 import { Layers, Database, Cpu, PenTool, Globe, Code } from "lucide-react"
 
-// --- IMPORTACIÓN DE IMÁGENES ---
-import reactLogo from "./assets/react-logo.png"
-import angularLogo from "./assets/angular-logo.png"
-import typescriptLogo from "./assets/typescript-logo.png"
-import javascriptLogo from "./assets/javascript-logo.png"
-import viteLogo from "./assets/vite-logo.png"
-import html5Logo from "./assets/html5-logo.png"
-import css3Logo from "./assets/css3-logo.png"
-import tailwindcssLogo from "./assets/tailwindcss-logo.png"
+// --- IMPORTACIÓN DE IMÁGENES (Rutas absolutas para evitar 404) ---
+import reactLogo from "/src/assets/react-logo.png"
+import angularLogo from "/src/assets/angular-logo.png"
+import typescriptLogo from "/src/assets/typescript-logo.png"
+import javascriptLogo from "/src/assets/javascript-logo.png"
+import viteLogo from "/src/assets/vite-logo.png"
+import html5Logo from "/src/assets/html5-logo.png"
+import css3Logo from "/src/assets/css3-logo.png"
+import tailwindcssLogo from "/src/assets/tailwindcss-logo.png"
 
-import nodejsLogo from "./assets/nodejs-logo.png"
-import expressLogo from "./assets/express-logo.png"
-import symfonyLogo from "./assets/symfony-logo.png"
-import postgresqlLogo from "./assets/postgresql-logo.png"
-import mysqlLogo from "./assets/mysql-logo.png"
-import sqliteLogo from "./assets/sqlite-logo.png"
-import prismaLogo from "./assets/prisma-logo.png"
+import nodejsLogo from "/src/assets/nodejs-logo.png"
+import expressLogo from "/src/assets/express-logo.png"
+import symfonyLogo from "/src/assets/symfony-logo.png"
+import postgresqlLogo from "/src/assets/postgresql-logo.png"
+import mysqlLogo from "/src/assets/mysql-logo.png"
+import sqliteLogo from "/src/assets/sqlite-logo.png"
+import prismaLogo from "/src/assets/prisma-logo.png"
 
-import gitLogo from "./assets/git-logo.png"
-import githubLogo from "./assets/github-logo.png"
-import dockerLogo from "./assets/docker-logo.png"
-import vscodeLogo from "./assets/vscode-logo.png"
-import postmanLogo from "./assets/postman-logo.png"
-import vercelLogo from "./assets/vercel-logo.png"
-import netlifyLogo from "./assets/netlify-logo.png"
+import gitLogo from "/src/assets/git-logo.png"
+import githubLogo from "/src/assets/github-logo.png"
+import dockerLogo from "/src/assets/docker-logo.png"
+import vscodeLogo from "/src/assets/vscode-logo.png"
+import postmanLogo from "/src/assets/postman-logo.png"
+import vercelLogo from "/src/assets/vercel-logo.png"
+import netlifyLogo from "/src/assets/netlify-logo.png"
 
-import responsiveLogo from "./assets/responsive-logo.png"
-import figmaLogo from "./assets/figma-logo.png"
-import canvaLogo from "./assets/canva-logo.png"
-import slackLogo from "./assets/slack-logo.png"
-import chatgptLogo from "./assets/chatgpt-logo.png"
-import geminiIcon from "./assets/gemini-icon.png"
-import deepseekLogo from "./assets/deepseek-logo.png"
+import responsiveLogo from "/src/assets/responsive-logo.png"
+import figmaLogo from "/src/assets/figma-logo.png"
+import canvaLogo from "/src/assets/canva-logo.png"
+import slackLogo from "/src/assets/slack-logo.png"
+import chatgptLogo from "/src/assets/chatgpt-logo.png"
+import geminiIcon from "/src/assets/gemini-icon.png"
+import deepseekLogo from "/src/assets/deepseek-logo.png"
 
 const SKILLS = [
   {
@@ -163,7 +163,6 @@ function TechProgress({ name, level, img }) {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       />
       <span className="relative flex items-center gap-3 px-3 py-2 text-sm sm:text-base font-medium text-slate-200 border border-white/10 backdrop-blur-sm transition-colors group-hover/tech:text-white">
-        {/* Aquí la prop img ya trae la URL procesada por Vite */}
         <img src={img} alt={name} className="w-4 h-4 sm:w-5 sm:h-5 object-contain filter grayscale group-hover/tech:grayscale-0 transition-all duration-300" />
         {name}
       </span>
@@ -171,11 +170,9 @@ function TechProgress({ name, level, img }) {
   )
 }
 
-/* --- COMPONENTE PRINCIPAL --- */
 export default function About() {
   return (
     <section id="about" className="relative min-h-screen py-32 border-t border-white/5 overflow-hidden flex items-center bg-[#030014]">
-      {/* Luces de fondo */}
       <div className="absolute top-0 right-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-violet-600/5 blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-indigo-600/5 blur-[140px] rounded-full pointer-events-none" />
 
@@ -186,7 +183,6 @@ export default function About() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {/* TEXTO IZQUIERDA */}
           <div className="xl:col-span-5 xl:sticky xl:top-32">
             <motion.span variants={textRevealVariants} className="text-indigo-500 font-black text-xs uppercase tracking-[0.5em] mb-4 sm:mb-6 block">
               Detrás del código
@@ -200,7 +196,6 @@ export default function About() {
             <motion.p variants={textRevealVariants} className="text-lg sm:text-xl md:text-2xl text-slate-400 mb-8 md:mb-12 max-w-full md:max-w-xl leading-relaxed font-light">
               Estoy dando mis primeros pasos como desarrollador web, construyendo proyectos, aprendiendo buenas prácticas y mejorando cada día.
               Me interesa el frontend, el diseño y la experiencia de usuario, y estoy motivado por seguir creciendo en un entorno profesional.
-              Busco una oportunidad donde aprender haciendo y aportar con compromiso y actitud.
             </motion.p>
 
             <motion.div variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -219,7 +214,6 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* CARDS DERECHA */}
           <motion.div 
             variants={containerVariants}
             className="xl:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6"
@@ -243,7 +237,6 @@ export default function About() {
               </SpotlightCard>
             ))}
           </motion.div>
-
         </motion.div>
       </div>
     </section>

@@ -2,22 +2,22 @@ import React from "react"
 import { motion } from "framer-motion"
 import { Github, Lock } from "lucide-react" 
 
-// --- IMPORTACIÓN DE IMÁGENES DE PROYECTOS ---
-import aurelImg from "./assets/aurel.png"
-import coffeeImg from "./assets/Coffee-1.png"
-import museoImg from "./assets/museo-1.png"
+// --- IMPORTACIÓN DE IMÁGENES DE PROYECTOS (Rutas absolutas para Vite) ---
+import aurelImg from "/src/assets/aurel.png"
+import coffeeImg from "/src/assets/Coffee-1.png"
+import museoImg from "/src/assets/museo-1.png"
 
 // --- IMPORTACIÓN DE LOGOS DE TECNOLOGÍAS ---
-import reactLogo from "./assets/react-logo.png"
-import viteLogo from "./assets/vite-logo.png"
-import tailwindLogo from "./assets/tailwindcss-logo.png"
-import css3Logo from "./assets/css3-logo.png"
-import jsLogo from "./assets/javascript-logo.png"
-import angularLogo from "./assets/angular-logo.png"
-import tsLogo from "./assets/typescript-logo.png"
-import symfonyLogo from "./assets/symfony-logo.png"
-import postgresLogo from "./assets/postgresql-logo.png"
-import dockerLogo from "./assets/docker-logo.png"
+import reactLogo from "/src/assets/react-logo.png"
+import viteLogo from "/src/assets/vite-logo.png"
+import tailwindLogo from "/src/assets/tailwindcss-logo.png"
+import css3Logo from "/src/assets/css3-logo.png"
+import jsLogo from "/src/assets/javascript-logo.png"
+import angularLogo from "/src/assets/angular-logo.png"
+import tsLogo from "/src/assets/typescript-logo.png"
+import symfonyLogo from "/src/assets/symfony-logo.png"
+import postgresLogo from "/src/assets/postgresql-logo.png"
+import dockerLogo from "/src/assets/docker-logo.png"
 
 const PROJECTS = [
   {
@@ -79,7 +79,6 @@ function ProjectTechBadge({ name, img }) {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       />
       <span className="relative flex items-center gap-3 px-4 py-2 text-xs font-bold text-slate-300 border border-white/5 backdrop-blur-md rounded-none transition-all duration-300 group-hover/tech:text-white group-hover/tech:border-white/20">
-        {/* Aquí usamos directamente la variable 'img' que ya es la URL procesada */}
         <img src={img} alt={name} className="w-4 h-4 object-contain filter grayscale group-hover/tech:grayscale-0 transition-all duration-300" />
         {name}
       </span>
