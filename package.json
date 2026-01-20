@@ -2,13 +2,13 @@
   "name": "manuel-vergara-portfolio",
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "npx vite build",
     "preview": "vite preview"
-  },
-  "engines": {
-    "node": "18.x"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.42",
