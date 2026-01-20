@@ -2,7 +2,22 @@ import React from "react"
 import { motion } from "framer-motion"
 import { Github, Lock } from "lucide-react" 
 
-const getImageUrl = (name) => `/src/assets/${name}`
+// --- IMPORTACIÓN DE IMÁGENES DE PROYECTOS ---
+import aurelImg from "./assets/aurel.png"
+import coffeeImg from "./assets/Coffee-1.png"
+import museoImg from "./assets/museo-1.png"
+
+// --- IMPORTACIÓN DE LOGOS DE TECNOLOGÍAS ---
+import reactLogo from "./assets/react-logo.png"
+import viteLogo from "./assets/vite-logo.png"
+import tailwindLogo from "./assets/tailwindcss-logo.png"
+import css3Logo from "./assets/css3-logo.png"
+import jsLogo from "./assets/javascript-logo.png"
+import angularLogo from "./assets/angular-logo.png"
+import tsLogo from "./assets/typescript-logo.png"
+import symfonyLogo from "./assets/symfony-logo.png"
+import postgresLogo from "./assets/postgresql-logo.png"
+import dockerLogo from "./assets/docker-logo.png"
 
 const PROJECTS = [
   {
@@ -12,12 +27,12 @@ const PROJECTS = [
     description: "Landing de cocinas premium con un enfoque minimalista y lujoso, optimizada para conversión y fluidez visual.",
     stats: ["100/100 SEO", "Full Responsive"],
     tech: [
-      { name: "React", img: "react-logo.png" },
-      { name: "Vite", img: "vite-logo.png" },
-      { name: "TailwindCSS", img: "tailwindcss-logo.png" },
-      { name: "CSS3", img: "css3-logo.png" },
+      { name: "React", img: reactLogo },
+      { name: "Vite", img: viteLogo },
+      { name: "TailwindCSS", img: tailwindLogo },
+      { name: "CSS3", img: css3Logo },
     ],
-    image: getImageUrl("aurel.png"), 
+    image: aurelImg, 
     links: { code: "https://github.com/mvergarato/aurel" },
   },
   {
@@ -27,12 +42,12 @@ const PROJECTS = [
     description: "Una tienda online de cafés y accesorios de todo el mundo con carrito funcional y pasarela de pago.",
     stats: ["Dynamic Cart", "Total Calculation"],
     tech: [
-      { name: "React", img: "react-logo.png" },
-      { name: "Vite", img: "vite-logo.png" },
-      { name: "TailwindCSS", img: "tailwindcss-logo.png" },
-      { name: "JavaScript", img: "javascript-logo.png" },
+      { name: "React", img: reactLogo },
+      { name: "Vite", img: viteLogo },
+      { name: "TailwindCSS", img: tailwindLogo },
+      { name: "JavaScript", img: jsLogo },
     ],
-    image: getImageUrl("Coffee-1.png"),
+    image: coffeeImg,
     links: { code: "https://github.com/mvergarato/thecoffespot" },
   },
   {
@@ -42,13 +57,13 @@ const PROJECTS = [
     description: "Proyecto real para cliente institucional con gestión de inventario, usuarios y multitud de funcionalidades.",
     stats: ["Admin Dashboard", "Auth System"],
     tech: [
-      { name: "Angular", img: "angular-logo.png" },
-      { name: "TypeScript", img: "typescript-logo.png" },
-      { name: "Symfony", img: "symfony-logo.png" },
-      { name: "PostgreSQL", img: "postgresql-logo.png" },
-      { name: "Docker", img: "docker-logo.png" },
+      { name: "Angular", img: angularLogo },
+      { name: "TypeScript", img: tsLogo },
+      { name: "Symfony", img: symfonyLogo },
+      { name: "PostgreSQL", img: postgresLogo },
+      { name: "Docker", img: dockerLogo },
     ],
-    image: getImageUrl("museo-1.png"),
+    image: museoImg,
     links: { code: null },
   },
 ]
@@ -64,7 +79,8 @@ function ProjectTechBadge({ name, img }) {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       />
       <span className="relative flex items-center gap-3 px-4 py-2 text-xs font-bold text-slate-300 border border-white/5 backdrop-blur-md rounded-none transition-all duration-300 group-hover/tech:text-white group-hover/tech:border-white/20">
-        <img src={getImageUrl(img)} alt={name} className="w-4 h-4 object-contain filter grayscale group-hover/tech:grayscale-0 transition-all duration-300" />
+        {/* Aquí usamos directamente la variable 'img' que ya es la URL procesada */}
+        <img src={img} alt={name} className="w-4 h-4 object-contain filter grayscale group-hover/tech:grayscale-0 transition-all duration-300" />
         {name}
       </span>
     </motion.div>
@@ -75,7 +91,6 @@ export default function Projects() {
   return (
     <section id="projects" className="relative py-20 border-t border-white/5 bg-[#030014] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 w-full">
-        {/* Titular con margen inferior reducido */}
         <motion.h2
           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -86,7 +101,6 @@ export default function Projects() {
           Proyectos <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-500">Destacados</span>
         </motion.h2>
 
-        {/* Grid con gap reducido (de 60 a 32) */}
         <div className="grid gap-32">
           {PROJECTS.map((project, index) => {
             const isEven = index % 2 === 0;
@@ -136,7 +150,6 @@ export default function Projects() {
                     {project.description}
                   </p>
                   
-                  {/* Stats con padding reducido */}
                   <div className="grid grid-cols-2 gap-8 mb-8 border-y border-white/5 py-6 relative">
                     {project.stats.map((stat, i) => (
                       <div key={i} className="relative overflow-hidden">
@@ -160,7 +173,6 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* Badges de Tecnología */}
                   <div className="flex flex-wrap gap-3 mb-8">
                     {project.tech.map((t, i) => (
                       <motion.div
@@ -174,7 +186,6 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* Enlace de Código */}
                   <div className="flex items-center">
                     {project.links.code ? (
                       <a 

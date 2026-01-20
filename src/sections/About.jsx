@@ -2,7 +2,39 @@ import React from "react"
 import { motion, useMotionValue, useMotionTemplate } from "framer-motion"
 import { Layers, Database, Cpu, PenTool, Globe, Code } from "lucide-react"
 
-const getImageUrl = (name) => `/src/assets/${name}`
+// --- IMPORTACIÓN DE IMÁGENES ---
+import reactLogo from "./assets/react-logo.png"
+import angularLogo from "./assets/angular-logo.png"
+import typescriptLogo from "./assets/typescript-logo.png"
+import javascriptLogo from "./assets/javascript-logo.png"
+import viteLogo from "./assets/vite-logo.png"
+import html5Logo from "./assets/html5-logo.png"
+import css3Logo from "./assets/css3-logo.png"
+import tailwindcssLogo from "./assets/tailwindcss-logo.png"
+
+import nodejsLogo from "./assets/nodejs-logo.png"
+import expressLogo from "./assets/express-logo.png"
+import symfonyLogo from "./assets/symfony-logo.png"
+import postgresqlLogo from "./assets/postgresql-logo.png"
+import mysqlLogo from "./assets/mysql-logo.png"
+import sqliteLogo from "./assets/sqlite-logo.png"
+import prismaLogo from "./assets/prisma-logo.png"
+
+import gitLogo from "./assets/git-logo.png"
+import githubLogo from "./assets/github-logo.png"
+import dockerLogo from "./assets/docker-logo.png"
+import vscodeLogo from "./assets/vscode-logo.png"
+import postmanLogo from "./assets/postman-logo.png"
+import vercelLogo from "./assets/vercel-logo.png"
+import netlifyLogo from "./assets/netlify-logo.png"
+
+import responsiveLogo from "./assets/responsive-logo.png"
+import figmaLogo from "./assets/figma-logo.png"
+import canvaLogo from "./assets/canva-logo.png"
+import slackLogo from "./assets/slack-logo.png"
+import chatgptLogo from "./assets/chatgpt-logo.png"
+import geminiIcon from "./assets/gemini-icon.png"
+import deepseekLogo from "./assets/deepseek-logo.png"
 
 const SKILLS = [
   {
@@ -10,14 +42,14 @@ const SKILLS = [
     icon: <Layers size={28} />,
     description: "Frameworks y tecnologías para interfaces modernas.",
     techs: [
-      { name: "React", level: 90, img: "react-logo.png" },
-      { name: "Angular", level: 80, img: "angular-logo.png" },
-      { name: "TypeScript", level: 70, img: "typescript-logo.png" },
-      { name: "JavaScript", level: 70, img: "javascript-logo.png" },
-      { name: "Vite", level: 80, img: "vite-logo.png" },
-      { name: "HTML5", level: 90, img: "html5-logo.png" },
-      { name: "CSS3", level: 85, img: "css3-logo.png" },
-      { name: "TailwindCSS", level: 85, img: "tailwindcss-logo.png" },
+      { name: "React", level: 90, img: reactLogo },
+      { name: "Angular", level: 80, img: angularLogo },
+      { name: "TypeScript", level: 70, img: typescriptLogo },
+      { name: "JavaScript", level: 70, img: javascriptLogo },
+      { name: "Vite", level: 80, img: viteLogo },
+      { name: "HTML5", level: 90, img: html5Logo },
+      { name: "CSS3", level: 85, img: css3Logo },
+      { name: "TailwindCSS", level: 85, img: tailwindcssLogo },
     ],
   },
   {
@@ -25,13 +57,13 @@ const SKILLS = [
     icon: <Database size={28} />,
     description: "Tecnologías para servidores y almacenamiento de datos.",
     techs: [
-      { name: "Node.js", level: 75, img: "nodejs-logo.png" },
-      { name: "Express.js", level: 70, img: "express-logo.png" },
-      { name: "Symfony", level: 65, img: "symfony-logo.png" },
-      { name: "PostgreSQL", level: 80, img: "postgresql-logo.png" },
-      { name: "MySQL", level: 75, img: "mysql-logo.png" },
-      { name: "SQLite", level: 75, img: "sqlite-logo.png" },
-      { name: "Prisma", level: 70, img: "prisma-logo.png" },
+      { name: "Node.js", level: 75, img: nodejsLogo },
+      { name: "Express.js", level: 70, img: expressLogo },
+      { name: "Symfony", level: 65, img: symfonyLogo },
+      { name: "PostgreSQL", level: 80, img: postgresqlLogo },
+      { name: "MySQL", level: 75, img: mysqlLogo },
+      { name: "SQLite", level: 75, img: sqliteLogo },
+      { name: "Prisma", level: 70, img: prismaLogo },
     ],
   },
   {
@@ -39,13 +71,13 @@ const SKILLS = [
     icon: <Cpu size={28} />,
     description: "Automatización, versionado y despliegue continuo.",
     techs: [
-      { name: "Git", level: 80, img: "git-logo.png" },
-      { name: "GitHub", level: 80, img: "github-logo.png" },
-      { name: "Docker", level: 65, img: "docker-logo.png" },
-      { name: "VSCode", level: 80, img: "vscode-logo.png" },
-      { name: "Postman", level: 60, img: "postman-logo.png" },
-      { name: "Vercel", level: 85, img: "vercel-logo.png" },
-      { name: "Netlify", level: 85, img: "netlify-logo.png" },
+      { name: "Git", level: 80, img: gitLogo },
+      { name: "GitHub", level: 80, img: githubLogo },
+      { name: "Docker", level: 65, img: dockerLogo },
+      { name: "VSCode", level: 80, img: vscodeLogo },
+      { name: "Postman", level: 60, img: postmanLogo },
+      { name: "Vercel", level: 85, img: vercelLogo },
+      { name: "Netlify", level: 85, img: netlifyLogo },
     ],
   },
   {
@@ -53,13 +85,13 @@ const SKILLS = [
     icon: <PenTool size={28} />,
     description: "Diseño, colaboración y soporte de inteligencia artificial.",
     techs: [
-      { name: "Responsive Design", level: 90, img: "responsive-logo.png" },
-      { name: "Figma", level: 80, img: "figma-logo.png" },
-      { name: "Canva", level: 100, img: "canva-logo.png" },
-      { name: "Slack", level: 100, img: "slack-logo.png" },
-      { name: "ChatGPT", level: 95, img: "chatgpt-logo.png" },
-      { name: "Gemini", level: 95, img: "gemini-icon.png" },
-      { name: "DeepSeek", level: 90, img: "deepseek-logo.png" },
+      { name: "Responsive Design", level: 90, img: responsiveLogo },
+      { name: "Figma", level: 80, img: figmaLogo },
+      { name: "Canva", level: 100, img: canvaLogo },
+      { name: "Slack", level: 100, img: slackLogo },
+      { name: "ChatGPT", level: 95, img: chatgptLogo },
+      { name: "Gemini", level: 95, img: geminiIcon },
+      { name: "DeepSeek", level: 90, img: deepseekLogo },
     ],
   },
 ]
@@ -131,7 +163,8 @@ function TechProgress({ name, level, img }) {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       />
       <span className="relative flex items-center gap-3 px-3 py-2 text-sm sm:text-base font-medium text-slate-200 border border-white/10 backdrop-blur-sm transition-colors group-hover/tech:text-white">
-        <img src={getImageUrl(img)} alt={name} className="w-4 h-4 sm:w-5 sm:h-5 object-contain filter grayscale group-hover/tech:grayscale-0 transition-all duration-300" />
+        {/* Aquí la prop img ya trae la URL procesada por Vite */}
+        <img src={img} alt={name} className="w-4 h-4 sm:w-5 sm:h-5 object-contain filter grayscale group-hover/tech:grayscale-0 transition-all duration-300" />
         {name}
       </span>
     </motion.div>
